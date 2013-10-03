@@ -38,7 +38,7 @@ half4 frag (v2f i) : COLOR
 {
 	half4 base = tex2D (_MainTex, i.uv1);
 	half4 mask = tex2D (_MaskTex, i.uv2);
-	base.w = mask.x;
+	base.w = mask.x * mask.x * mask.x;
     return base * (_Color * 2.0f);
 }
 			ENDCG
